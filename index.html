@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IRON VAULT</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="logo">IRON VAULT</h1>
+      <div class="header-actions">
+        <button id="langToggle" class="btn-secondary">EN</button>
+      </div>
+    </header>
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="view active">
+      <div class="stats-grid">
+        <div class="card">
+          <h3 data-i18n="activeProgram">برنامه فعال</h3>
+          <p id="activeProgramName">—</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="bodyWeight">وزن فعلی</h3>
+          <p id="currentWeight">— kg</p>
+        </div>
+        <div class="card">
+          <h3>BMI</h3>
+          <p id="currentBMI">—</p>
+        </div>
+      </div>
+      <div class="action-grid">
+        <button class="btn-primary" onclick="navigate('programs')" data-i18n="managePrograms">مدیریت برنامه‌ها</button>
+        <button class="btn-primary" onclick="navigate('metrics')" data-i18n="bodyMetrics">آنالیز بدن</button>
+        <button class="btn-primary" onclick="navigate('archive')" data-i18n="archive">آرشیو</button>
+      </div>
+    </section>
+
+    <!-- Programs View -->
+    <section id="programs" class="view">
+      <h2 data-i18n="programs">برنامه‌ها</h2>
+      <div id="programList"></div>
+      <button class="btn-primary" onclick="createProgram()" data-i18n="newProgram">برنامه جدید</button>
+      <div id="programDaysContainer"></div> <!-- Container داینامیک روزها -->
+    </section>
+
+    <!-- Body Metrics View -->
+    <section id="metrics" class="view">
+      <canvas id="metricsChart" width="400" height="200" style="margin-top:20px;"></canvas>
+      <h2 data-i18n="bodyMetrics">آنالیز بدن</h2>
+      <div id="metricsContent"></div>
+      <button class="btn-primary" onclick="addMetric()" data-i18n="addEntry">افزودن رکورد</button>
+    </section>
+
+    <!-- Archive View -->
+    <section id="archive" class="view">
+      <h2 data-i18n="archive">آرشیو</h2>
+      <div id="archiveList"></div>
+    </section>
+  </div>
+
+  <script src="db.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

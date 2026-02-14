@@ -1,0 +1,9 @@
+{
+  "name": "IRON VAULT",
+  "short_name": "IronVault",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0D0D0D",
+  "theme_color": "#00FF88",
+  "icons": []
+}
